@@ -1,0 +1,13 @@
+﻿<h1>Google Search</h1>
+
+<form method="get" action="/search">
+    <label for="query">Search:</label>
+    <input type="text" name="query" id="query">
+    <button type="submit">Search</button>
+</form>
+
+@if (!string.IsNullOrEmpty(ViewBag.ResultText))
+{
+<h2>Search Results</h2>
+<p>@Html.Raw(ViewBag.ResultText)</p>
+}
