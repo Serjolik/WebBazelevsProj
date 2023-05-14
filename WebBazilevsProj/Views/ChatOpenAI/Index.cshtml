@@ -1,0 +1,18 @@
+﻿@model string
+
+<h1>OpenAI Chat Example</h1>
+
+<form method="post">
+    <div>
+        <label for="message">Message:</label>
+        <input type="text" id="message" name="message" />
+    </div>
+    <div>
+        <button type="submit">Send</button>
+    </div>
+</form>
+
+@if (!string.IsNullOrEmpty(ViewBag.Result))
+{
+    <p>Result: @ViewBag.Result</p>
+}
