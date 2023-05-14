@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Chat with ChatGPT</title>
+	<meta charset="utf-8" />
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	<h1>Chat with ChatGPT</h1>
+	<form id="chat-form">
+		<label for="user-message">Enter your message:</label><br>
+		<input type="text" id="user-message" name="message"><br>
+		<input type="submit" value="Send">
+	</form>
+	<div id="chat-output"></div>
+	<script>
+		$(document).ready(function () {
+			$('#chat-form').submit(function (event) {
+				event.preventDefault();
+				var message = $('#user-message').val();
+				$.ajax({
+					url: "https://api.openai.com/v1/engines/davinci-codex/completions",
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						"Authorization": "Bearer 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"
+					},
+					data: JSON.stringify({
+						"prompt": message,
+						"max_tokens": 10,
+						"n": 1,
+						"stop": "."
+					}),
+					success: function (result) {
+						$('#chat-output').html(result.choices[0].text);
+					},
+					error: function (xhr, status, error) {
+						console.log(error);
+					}
+				});
+			});
+		});
+	</script>
+</body>
+</html>

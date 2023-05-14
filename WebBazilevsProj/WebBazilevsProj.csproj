@@ -9,11 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\ChatOpenAI\Index.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Views\ChatOpenAI\Index.cshtml" />
     <None Include="Views\Google\Index.cshtml" />
     <None Include="Views\Kandinskiy\Index.cshtml" />
   </ItemGroup>
