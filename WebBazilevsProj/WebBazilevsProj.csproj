@@ -9,21 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Search\Index.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="Views\Google\Index.cshtml" />
+    <None Include="Views\Kandinskiy\Index.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Search\" />
   </ItemGroup>
 
 </Project>

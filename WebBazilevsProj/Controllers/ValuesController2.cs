@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using System.Text;
-using WebBazilevsProj.Models;  
+using System.IO;
 
 namespace WebBazilevsProj.Controllers
 {
-    [Route("Search")]
+    [Route("Home/search")]
     public class GoogleController : Controller
     {
         public IActionResult Index()
@@ -13,17 +12,34 @@ namespace WebBazilevsProj.Controllers
             return View();
         }
 
-        [Route("Browse")]
-        public async Task<IActionResult> Search(string query)
+        [HttpPost]
+        public IActionResult Index(string text)
         {
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync($"https://www.google.com/search?q={query}");
-            response.EnsureSuccessStatusCode();
-            string responseBody = await response.Content.ReadAsStringAsync();
+            string imagePathFile = "C:\\TestNeuro\\image.jpg";
+            if (imagePathFile != null)
+            {
+                Console.WriteLine(imagePathFile);
+                byte[] imageBytes = System.IO.File.ReadAllBytes(imagePathFile);
+                return new FileContentResult(imageBytes, "image/jpeg");
+            }
 
-            ViewBag.ResultText = responseBody;
+            // Run the Python script
+            ProcessStartInfo start = new ProcessStartInfo();
+            start.FileName = "python";
+            start.Arguments = string.Format("{0} {1}", "C:\\TestNeuro\\Test.py", text);
+            start.UseShellExecute = false;
+            start.RedirectStandardOutput = true;
+            using (Process process = Process.Start(start))
+            {
+                using (StreamReader reader = process.StandardOutput)
+                {
+                    string result = reader.ReadToEnd();
+                    string imagePath = System.IO.File.ReadAllText(imagePathFile).Trim();
+                    ViewBag.ImagePath = imagePath;
+                }
+            }
 
-            return View("Index");
+            return View();
         }
     }
 }
