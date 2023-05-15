@@ -1,12 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using OpenAI_API.Completions;
-using OpenAI_API;
-using System.Diagnostics;
-using System.Net.Http.Headers;
-using System.Text;
-using WebBazilevsProj.Models;   
+using OpenAI_API; 
 
 namespace WebBazilevsProj.Controllers
 {

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Command Execution</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#executeButton').click(function () {
+                var command = $('#commandInput').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Home/Anaconda',
+                    contentType: 'application/json',
+                    data: JSON.stringify(command),
+                    success: function (output) {
+                        // Display the output on the frontend
+                        $('#outputDiv').text(output);
+                    },
+                    error: function (error) {
+                        console.error(error);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Command Execution</h1>
+
+    <label for="commandInput">Command:</label>
+    <input type="text" id="commandInput" name="commandInput">
+
+    <button id="executeButton">Execute</button>
+
+    <div id="outputDiv"></div>
+</body>
+</html>
