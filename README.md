@@ -61,6 +61,6 @@ Generated artbook about the character. </h5>
 
 
 ##  4) Guide 
-     Download the repository, if you have a development environment for C#, run the sln file in the main repository, raise the server. If you don't have a development environment, use docker. After starting the server, you will see the home page, go to the manual, there you will see a short description of the tabs.
+   <h4>Download the repository, if you have a development environment for C#, run the sln file in the main repository, raise the server. If you don't have a development environment, use docker. After starting the server, you will see the home page, go to the manual, there you will see a short description of the tabs.</h4>
 
 
