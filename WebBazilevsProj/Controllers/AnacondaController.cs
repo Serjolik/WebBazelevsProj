@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Python.Runtime;
+using System;
 using System.Diagnostics;
+using System.Runtime.Intrinsics.Arm;
 
 namespace WebBazilevsProj.Controllers
 {
@@ -21,34 +24,16 @@ namespace WebBazilevsProj.Controllers
             string cmdOutput = string.Empty;
 
             // Create a new process start info for cmd.exe
-            ProcessStartInfo startInfo = new ProcessStartInfo
-            {
-                FileName = "cmd.exe",
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                RedirectStandardInput = true,
-                RedirectStandardError = true,
-                CreateNoWindow = true,
-            };
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = "cmd.exe";
+            startInfo.UseShellExecute = true;
+            startInfo.WorkingDirectory = "C:\\Users\\it-lab\\Desktop\\stable-diffusion-main";
+            startInfo.Arguments = "/c \"conda activate ldm && python scripts/txt2img.py --prompt \"" + command + "\" --H 512 --W 512 --seed 40 --n_iter 4 --ddim_steps 50";
 
-            // Start the cmd.exe process
-            using (Process cmdProcess = new Process())
-            {
-                cmdProcess.StartInfo = startInfo;
-                cmdProcess.Start();
+            Process.Start(startInfo);
 
-                // Write the command to the cmd console
-                cmdProcess.StandardInput.WriteLine(command);
-                cmdProcess.StandardInput.Close();
 
-                // Read the output and error streams
-                cmdOutput = cmdProcess.StandardOutput.ReadToEnd();
-                string cmdError = cmdProcess.StandardError.ReadToEnd();
-
-                cmdProcess.WaitForExit();
-            }
-
-            return Ok(cmdOutput);
+            return Ok("Complete");
         }
     }
 }

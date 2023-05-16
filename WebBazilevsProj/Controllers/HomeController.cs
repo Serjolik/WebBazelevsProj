@@ -19,18 +19,23 @@ namespace WebBazilevsProj.Controllers
             return View();
         }
 
-        [HttpPost]
+
+        [HttpPost] 
         public IActionResult Index(string searchText)
         {
-            //your OpenAI API key
-            string apiKey = "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";
+            var oldText = searchText;
+
+            string editedText = formating(searchText);
+            //your OpenAI API key 
+            string apiKey = "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";
             string answer = string.Empty;
             var openai = new OpenAIAPI(apiKey);
             CompletionRequest completion = new CompletionRequest();
-            completion.Prompt = searchText;
+            completion.Prompt = editedText;
             completion.Model = OpenAI_API.Models.Model.DavinciText;
             completion.MaxTokens = 4000;
             var result = openai.Completions.CreateCompletionAsync(completion);
+
             if (result != null)
             {
                 foreach (var item in result.Result.Completions)
@@ -39,8 +44,17 @@ namespace WebBazilevsProj.Controllers
                 }
             }
             ViewBag.Answer = answer;
-            ViewBag.Text = searchText;
+            ViewBag.Text = oldText;
+
             return View();
+        }
+
+        private string formating(string text)
+        {
+            string newText = "Write a story about "
+                + text
+                + " . 10 offers required.";
+            return newText;
         }
     }
 }
