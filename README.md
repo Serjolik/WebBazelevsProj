@@ -55,11 +55,12 @@ Generated artbook about the character. </h5>
 ### 2) our solution:
 <h5>- We decided to create a prototype of the service to optimize this task.</h5>
 
-## Our architecture
+## 3) Our architecture
 
 <img src="https://github.com/Serjolik/WebBazilevsProj/assets/109044567/2d338306-5bb5-42d3-9825-3d38d08f88bd" width="2048" height="512">
 
 
-##  
+##  4) Guide 
+     Download the repository, if you have a development environment for C#, run the sln file in the main repository, raise the server. If you don't have a development environment, use docker. After starting the server, you will see the home page, go to the manual, there you will see a short description of the tabs.
 
 
