@@ -48,7 +48,7 @@ In this project, we implemented an interface for generating a description of a c
 
 ## Our architecture
 
-<img src="https://github.com/Serjolik/WebBazilevsProj/assets/109044567/5180514d-c51e-4a09-b749-2e5011919d0c" width="1024" height="512">
+<img src="https://github.com/Serjolik/WebBazilevsProj/assets/109044567/5180514d-c51e-4a09-b749-2e5011919d0c" width="2048" height="512">
 
 ## Stable Diffusion v2
 Stable Diffusion v2 refers to a specific configuration of the model architecture that uses a downsampling-factor 8 autoencoder with an 865M UNet and OpenCLIP ViT-H/14 text encoder for the diffusion model. The SD 2-v model produces 768x768 px outputs.
