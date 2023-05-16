@@ -5,7 +5,7 @@ In this project, we used "Stable diffusion" and "ChatGPT" to create new characte
 <img src="https://for-press.ru/wp-content/uploads/2023/03/unnamed.png" width="512" height="256">
 
 
-To implement the interface, we used "C#" and "Js".
+To implement the interface, we used "C#" and "JS".
 
 <html>
  <head>
