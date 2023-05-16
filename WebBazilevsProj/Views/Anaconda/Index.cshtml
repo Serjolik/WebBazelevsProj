@@ -6,7 +6,7 @@
     <script>
         $(document).ready(function () {
             $('#executeButton').click(function () {
-                var command = $('#commandInput').val();
+                var command = $('#commandInput').val() + "+" + $('#numberInput').val();
 
                 $.ajax({
                     type: 'POST',
@@ -26,13 +26,17 @@
     </script>
 </head>
 <body>
-    <h1>Command Execution</h1>
-
-    <label for="commandInput">Command:</label>
-    <input type="text" id="commandInput" name="commandInput">
-
-    <button id="executeButton">Execute</button>
-
+    <div class="panel-body">
+    <h2>Генерация при помощи <br> Stable diffusion</h2>
+        <input type="text" class="form-control" id="commandInput" name="commandInput">
+        <label for:"commandImput"> Напишите что отрисовать </label>
+        <p></p>
+        <input type="text" class="form-control" id="numberInput" name="numberInput">
+        <label for:"numberInput"> Введите количество итераций </label>
+        <p></p>
+        <button id="executeButton" class="btn btn-primary">Начать</button>
+        <p></p>
     <div id="outputDiv"></div>
+    </div>
 </body>
 </html>

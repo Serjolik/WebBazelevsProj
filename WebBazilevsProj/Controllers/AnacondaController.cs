@@ -20,7 +20,8 @@ namespace WebBazilevsProj.Controllers
         [HttpPost]
         public async Task<IActionResult> LaunchExe([FromBody] string command)
         {
-
+            var input = command.Split("+")[0];
+            var number = command.Split("+")[1];
             string cmdOutput = string.Empty;
 
             // Create a new process start info for cmd.exe
@@ -28,12 +29,12 @@ namespace WebBazilevsProj.Controllers
             startInfo.FileName = "cmd.exe";
             startInfo.UseShellExecute = true;
             startInfo.WorkingDirectory = "stable-diffusion-main";
-            startInfo.Arguments = "/c \"conda activate ldm && python scripts/txt2img.py --prompt \"" + command + "\" --H 512 --W 512 --seed 40 --n_iter 4 --ddim_steps 50";
+            startInfo.Arguments = "/c \"conda activate ldm && python scripts/txt2img.py --prompt \"" + command + "\" --H 512 --W 512 --seed 40 --n_iter " + number + " --ddim_steps 50";
 
             Process.Start(startInfo);
 
-
-            return Ok("Complete");
+            int num = int.Parse(input);
+            return Ok("Waiting " + num % 10 + 1 + "m");
         }
     }
 }

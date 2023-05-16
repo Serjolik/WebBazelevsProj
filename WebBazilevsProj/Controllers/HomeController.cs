@@ -21,11 +21,11 @@ namespace WebBazilevsProj.Controllers
 
 
         [HttpPost] 
-        public IActionResult Index(string searchText)
+        public IActionResult Index(string searchText, string numbersOfOffers, string textStyle)
         {
             var oldText = searchText;
 
-            string editedText = formating(searchText);
+            string editedText = formating(searchText, numbersOfOffers, textStyle);
             //your OpenAI API key 
             string apiKey = "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";
             string answer = string.Empty;
@@ -45,15 +45,24 @@ namespace WebBazilevsProj.Controllers
             }
             ViewBag.Answer = answer;
             ViewBag.Text = oldText;
+            ViewBag.Number = numbersOfOffers;
+            ViewBag.TextStyle = textStyle;
 
             return View();
         }
 
-        private string formating(string text)
+        private string formating(string text, string numbersOfOffers, string textStyle)
         {
-            string newText = "Write a story about "
-                + text
-                + " . 10 offers required.";
+            string newText = "Write a story about " + text;
+
+            if (numbersOfOffers != null)
+                newText += ". Need text only in" + numbersOfOffers + " sentence.";
+
+            if (textStyle != null)
+                newText += " use text style: " + textStyle;
+
+            newText += ". Text must be in present tense";
+
             return newText;
         }
     }

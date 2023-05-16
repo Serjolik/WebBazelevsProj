@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+<button id="downloadButton">Download Images</button>
+
+<script>
+    document.getElementById("downloadButton").addEventListener("click", function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/api/downloadImages");
+        xhr.responseType = "json";
+
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                var response = xhr.response;
+                var images = response.images;
+                var imageContainer = document.getElementById("imageContainer");
+
+                for (var i = 0; i < images.length; i++) {
+                    var image = document.createElement("img");
+                    image.src = "data:image/png;base64," + images[i];
+                    imageContainer.appendChild(image);
+                }
+
+                var blob = new Blob([response.zipFile], { type: "application/zip" });
+                var link = document.createElement("a");
+                link.href = window.URL.createObjectURL(blob);
+                link.download = "downloaded_images.zip";
+                link.click();
+            }
+        };
+
+        xhr.send();
+    });
+</script>
+</body>

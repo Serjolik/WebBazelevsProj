@@ -1,27 +1,31 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<div class="text-center">
-
     <form asp-controller="Home" asp-action="Index" method="post">
-        <div class="panel panel-default">
-            <div class="panel-body">ChatGPT Completions In ASP.NET Core Web API</div>
             <div class="panel-body">
-                <div class="col-sm-9">
-                    <input type="text" name="searchText" value="@ViewBag.Text" class="form-control" autocomplete="off" />
-                </div>
-                <div class="col-sm-3" style="margin-left: -70px;">
-                    <input type="submit" class="btn btn-primary" value="Search Answer" />
-                </div>
+                <h2>GPT-3 Для генерации сценария по заданному формату</h2>
+            </div>
+
+            <div class="panel-body">
+                    <input type="text" id="searchText" name="searchText" value="@ViewBag.Text" class="form-control" autocomplete="off" />
+                    <label for="searchText">Имя персонажа</label>
+                    <p></p>
+                    <label>Следующие поля вводите по желанию</label>
+                    <p></p>
+                    <input type="text" id="numbersOfOffers" name="numbersOfOffers" value="@ViewBag.Number" class="form-control" autocomplete="off" />
+                    <label for="numbersOfOffers">Количество предложений</label>
+                    <p></p>
+                    <input type="text" id="textStyle" name="textStyle" value="@ViewBag.textStyle" class="form-control" autocomplete="off" />
+                    <label for="textStyle">Стиль текста</label>
+                    <p></p>
+                    <input type="submit" class="btn btn-primary" value="Начать генерацию" />
+                    <p></p>
                 @if (ViewBag.Answer != null)
                 {
-                    <div class="col-sm-12 mt-5">
+                    <div class="textFrame">
                         @Html.Raw(ViewBag.Answer)
                     </div>
                 }
 
             </div>
-        </div>
     </form>
-</div>
