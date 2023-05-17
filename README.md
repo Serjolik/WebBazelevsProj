@@ -64,4 +64,10 @@ Generated artbook about the character. </h5>
    <h4>Download the repository, if you have a development environment for C#, run the sln file in the main repository, raise the server. If you don't have a development environment, use docker.</h4> 
   <h4>After starting the server, you will see the home page, go to the manual, there you will see a short description of the tabs.</h4>
    </h4>
-
+   
+   #### links
+   tests - https://docs.google.com/document/d/1W91XeTczM0FVtvpcgLv9qGvlayVj6_n4JdJFVNsvdJo/edit
+   storyboard - https://docs.google.com/document/d/1bYqj42XE1nQjvj41X0TmTltStYBASCmv1t30gLv709A/edit
+   artbook - https://drive.google.com/file/d/1PECFXcjrwPl8FYQQvgg_log2N3aVl0xF/view
+   
+   
