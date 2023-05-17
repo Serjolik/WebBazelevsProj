@@ -14,7 +14,7 @@ To implement the interface, we used "C#" and "JS".
  <body>
   <p>
     <img src="https://pnggallery.com/wp-content/uploads/javascript-logo-04.png" width="120" height="120">
-    <img src="https://github.com/Serjolik/WebBazilevsProj/assets/109044567/0b0e81cb-9ae6-496e-82ac-e9ac950a2dc7" width="200" height="120">
+    <img src="https://github.com/Serjolik/WebBazilevsProj/assets/109044567/c9879911-d676-44bd-bda2-d02f21b9ee7b" width="250" height="140">
   </p>
  </body>
 </html>
@@ -57,7 +57,7 @@ Generated artbook about the character. </h5>
 
 ## 3) Our architecture
 
-<img src="https://github.com/Serjolik/WebBazilevsProj/assets/109044567/2d338306-5bb5-42d3-9825-3d38d08f88bd" width="2048" height="512">
+<img src="https://github.com/Serjolik/WebBazilevsProj/assets/109044567/4b372e26-a11b-4541-a2b8-08cc13340ac6" width="2048" height="512">
 
 
 ##  4) Guide 
