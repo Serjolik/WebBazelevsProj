@@ -84,10 +84,10 @@ h2 {
 }
 
 .container {
-    margin-left: 0;
-    margin-right: 0;
-    width: 500px;
-    clear: both;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 100px 0 100px;
 }
 
     .container input {
