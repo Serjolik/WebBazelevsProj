@@ -12,10 +12,9 @@ To implement the interface, we used "C#" and "JS".
   <meta charset="utf-8">
  </head>
  <body>
-  <p>
-    <img src="https://pnggallery.com/wp-content/uploads/javascript-logo-04.png" width="120" height="120">
-    <img src="https://github.com/Serjolik/WebBazilevsProj/assets/109044567/c9879911-d676-44bd-bda2-d02f21b9ee7b" width="250" height="140">
-  </p>
+<p>
+<img src="https://github.com/Serjolik/WebBazelevsProj/assets/104458106/5a22631f-2703-4240-8eb4-1f70b84a82d5" width="960" height="480">
+</p>
  </body>
 </html>
 
